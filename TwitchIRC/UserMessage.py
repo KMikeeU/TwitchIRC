@@ -4,7 +4,7 @@ import re
 
 class UserMessage(Message):
     def parse(self):
-        matches = re.match(r"^@badge-info=(.*?);badges=(.*?);color=(#[A-F0-9]+)?;display-name=(\w+);(?:emote-only=(\d);)?(?:emotes=([\d:\-,\/]*));flags=(.*?);id=([a-z0-9\-]+);mod=(\d);room-id=(\d+);subscriber=(\d+);tmi-sent-ts=(\d)+;turbo=(\d);user-id=(\d+);user-type=.*?\s:(\w+)!.*?@.*?\.tmi\.twitch\.tv\sPRIVMSG #(\w+)\s:(.*)$", self.raw)
+        matches = re.match(r"^@badge-info=(.*?);badges=(.*?);color=(#[A-F0-9]+)?;display-name=(.*?);(?:emote-only=(\d);)?(?:emotes=([\d:\-,\/]*));flags=(.*?);id=([a-z0-9\-]+);mod=(\d);room-id=(\d+);subscriber=(\d+);tmi-sent-ts=(\d)+;turbo=(\d);user-id=(\d+);user-type=.*?\s:(\w+)!.*?@.*?\.tmi\.twitch\.tv\sPRIVMSG #(\w+)\s:(.*)$", self.raw)
         
         if matches == None:
             print("Error while parsing user message: " + self.raw)
